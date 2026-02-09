@@ -12,13 +12,15 @@
     "@types/jsonwebtoken": "^9.0.10",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
-    "@repo/database":"workspace:*"
+    "@repo/db":"workspace:*",
+     "@prisma/client": "^7.3.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/express": "^5.0.6",
     "@repo/backend-common":"workspace:*",
-    "@repo/common":"workspace:*"
+    "@repo/common":"workspace:*",
+    "prisma": "^7.0.0"
   },
   "keywords": [],
   "author": "",
