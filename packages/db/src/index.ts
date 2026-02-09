@@ -10,4 +10,4 @@ const adapter=new PrismaNeon({connectionString:process.env.DATABASE_URL});
 //     adapter
 // });
 
-export const prisma = new PrismaClient();
+export const prisma = new PrismaClient({adapter});
