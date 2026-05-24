@@ -1,14 +1,10 @@
 {
-    "extends":"@repo/typescript-config/base.json",
-    //  "compilerOptions": {
-    // "types": ["node"],
-    // "moduleResolution": "NodeNext"
-    //  },
-     "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src",
+  "extends":"@repo/typescript-config/base.json",
+  "compilerOptions": {
     "types": ["node"],
-    "moduleResolution": "NodeNext"
-    },
-    "include": ["src"]
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+     "ignoreDeprecations": "6.0"
+  },
+  
 }
