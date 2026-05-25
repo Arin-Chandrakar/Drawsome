@@ -34,7 +34,7 @@ app.post("/signup",async (req,res)=>{
     })
     //db call
     res.json({
-        userId: "123"
+        userId: user.id
     })
     }catch(e){
         console.log(e)
@@ -78,28 +78,29 @@ app.post("/signin", async (req,res)=>{
     })
 });
 
-// app.post("/room",middleware,async(req,res)=>{?
-//     const parsedData=CreateRoomSchema.safeParse(req.body);
-//     if(!parsedData.success){
-//         res.json({
-//             message:"Incorrect Inputs"
-//         })
-//         return;
-//     }
+app.post("/room",middleware,async(req,res)=>{
+    const parsedData=CreateRoomSchema.safeParse(req.body);
+    if(!parsedData.success){
+        console.log(parsedData.error)
+        res.json({
+            message:"Incorrect Inputs"
+        })
+        return;
+    }
 
-//     //@ts-ignore
-//     const userId=req.userId;
+    //@ts-ignore
+    const userId=req.userId;
 
-//     await prisma.room.create({
-//         data:{
-//             slug:parsedData.data.name,
-//             adminId:userId
-//         }
-//     })
-//     res.json({
-//         roomId:123
-//     })
+    await prisma.room.create({
+        data:{
+            slug:parsedData.data.name,
+            adminId:userId,
+        }
+    })
+    res.json({
+        roomId:123
+    })
 
-// });
+});
 
 app.listen(3003);
