@@ -4,7 +4,8 @@
     "types": ["node"],
     "module": "nodenext",
     "moduleResolution": "nodenext",
-     "ignoreDeprecations": "6.0"
+    "rootDir": "./",
+    "outDir": "./dist"
   },
   
 }

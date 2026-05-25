@@ -5,6 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build":"tsc -b",
+    "dev": "npm run build && npm run start",
+    "start": "node dist/index.js",
     "db:generate": "prisma generate", 
     "db:migrate": "prisma migrate dev", 
     "db:deploy": "prisma migrate deploy"
@@ -24,6 +27,7 @@
     "dotenv": "^17.2.3"
   },
   "exports":{
-    ".":"./src/index.ts"
+    ".":"./src/index.ts",
+    "./index":"./dist/src/index.js"
   }
 }

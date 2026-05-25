@@ -1,9 +1,10 @@
 import express from 'express';
+import "dotenv/config";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from '@repo/backend-common/config';
 import { middleware } from './middleware';
 import {CreateUserSchema, SigninSchema, CreateRoomSchema} from "@repo/common/types"
-import {prisma} from "@repo/db"
+import {prisma} from "@repo/db/index"
 
 
 
@@ -13,6 +14,8 @@ app.use(express.json());
 app.post("/signup",async (req,res)=>{
 
     const parsedData=CreateUserSchema.safeParse(req.body);
+    console.log(req.body)
+    console.log(parsedData)
     if(!parsedData.success){
         res.json({
             message:"Incorrect Inputs"
@@ -31,47 +34,49 @@ app.post("/signup",async (req,res)=>{
     })
     //db call
     res.json({
-        userId: user.id
+        userId: "123"
     })
     }catch(e){
+        console.log(e)
         res.status(400).json({
             message:"User already exists with this username"
         })
+        
     }
 });
 
-// app.post("/signin", async (req,res)=>{
+app.post("/signin", async (req,res)=>{
     
-//     const parsedData=SigninSchema.safeParse(req.body);
-//     if(!parsedData.success){
-//         res.json({
-//             message:"Incorrect Inputs"
-//         })
-//         return;
-//     }
+    const parsedData=SigninSchema.safeParse(req.body);
+    if(!parsedData.success){
+        res.json({
+            message:"Incorrect Inputs"
+        })
+        return;
+    }
 
-//     const user = await prisma.user.findFirst({
-//         where:{
-//             email:parsedData.data.username,
-//             password:parsedData.data.password
-//         }
-//     })
+    const user = await prisma.user.findFirst({
+        where:{
+            username:parsedData.data.username,
+            password:parsedData.data.password
+        }
+    })
 
-//     if(!user){
-//         res.status(403).json({
-//             message:"Not authorized"
-//         })
-//         return;
-//     }
+    if(!user){
+        res.status(403).json({
+            message:"Not authorized"
+        })
+        return;
+    }
 
-//     const token = jwt.sign({
-//         userId:user?.id
-//     },JWT_SECRET);
+    const token = jwt.sign({
+        userId:user?.id
+    },JWT_SECRET);
 
-//     res.json({
-//         token
-//     })
-// });
+    res.json({
+        token
+    })
+});
 
 // app.post("/room",middleware,async(req,res)=>{?
 //     const parsedData=CreateRoomSchema.safeParse(req.body);
