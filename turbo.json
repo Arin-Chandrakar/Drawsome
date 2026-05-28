@@ -15,6 +15,7 @@
       "dependsOn": ["^check-types"]
     },
     "dev": {
+      "env":["DATABASE_URL"],
       "cache": false,
       "persistent": true
     },

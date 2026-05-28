@@ -48,7 +48,9 @@ app.post("/signup",async (req,res)=>{
 app.post("/signin", async (req,res)=>{
     
     const parsedData=SigninSchema.safeParse(req.body);
-    if(!parsedData.success){
+
+    try{
+        if(!parsedData.success){
         res.json({
             message:"Incorrect Inputs"
         })
@@ -62,13 +64,6 @@ app.post("/signin", async (req,res)=>{
         }
     })
 
-    if(!user){
-        res.status(403).json({
-            message:"Not authorized"
-        })
-        return;
-    }
-
     const token = jwt.sign({
         userId:user?.id
     },JWT_SECRET);
@@ -76,6 +71,14 @@ app.post("/signin", async (req,res)=>{
     res.json({
         token
     })
+    }catch(e){
+        if(e){
+        res.status(403).json({
+            message:"Not authorized"
+        })
+        return;
+    }
+    }   
 });
 
 app.post("/room",middleware,async(req,res)=>{
@@ -94,7 +97,7 @@ app.post("/room",middleware,async(req,res)=>{
     try{
         const room=await prisma.room.create({
         data:{
-            slug:parsedData.data.name,
+            slug:parsedData.data.slug,
             adminId:userId,
         }
     })
