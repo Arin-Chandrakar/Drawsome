@@ -113,4 +113,34 @@ app.post("/room",middleware,async(req,res)=>{
 
 });
 
+app.post("/chats/:roomId" ,async (req,res)=>{
+    const roomId = Number(req.params.roomId);
+    const messages = await prisma.chat.findMany({
+        where:{
+            roomId:roomId
+        },
+        orderBy:{
+            id:"desc"
+        },
+        take:50
+    });
+
+    res.json({
+        messages
+    })
+})
+
+app.post("/room/:slug" ,async (req,res)=>{
+    const slug = req.params.slug;
+    const room = await prisma.room.findFirst({
+        where:{
+            slug
+        }
+    });
+
+    res.json({
+        room
+    })
+})
+
 app.listen(3003);
