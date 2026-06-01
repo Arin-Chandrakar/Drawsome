@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from  "next/font/local";
+
+const metal = localFont({
+  src: "../public/font/Metal-Regular.ttf",
+  variable:"--font-metal"
+});
+
+const inter = localFont({
+  src: "../public/font/Inter-Variable.ttf",
+  variable:"--font-inter"
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable}  ${metal.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
