@@ -21,9 +21,21 @@ export default function Home() {
            }}
            >Drawsome</motion.span>
         </div>
-        <motion.div className="flex w-full justify-center items-center ">
-          <img src="/hanu.png" className="w-200 aspect-auto rounded-xl" alt=""/>
-        </motion.div>
+        <div className="flex w-full justify-center items-center">
+          <div className="relative overflow-hidden rounded-xl p-0.5">
+            <motion.div className="absolute -inset-full bg-[conic-gradient(from_60deg,transparent,transparent,#FF1493,transparent,blue)] z-0"
+               animate={{rotate:360}}
+               transition={{
+               duration: 3,
+               ease: "linear",
+               repeat: Infinity
+               }}>
+            </motion.div>
+            <div className="relative rounded-xl bg-black w-80">
+              <img src="/hanu.png" className="w-200 aspect-auto rounded-xl z-1" alt=""/>
+            </div>
+          </div> 
+        </div>
       </div>
   );
 }
