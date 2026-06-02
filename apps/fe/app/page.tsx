@@ -25,7 +25,7 @@ export default function Home() {
             <span className="text-4xl mt-10 text-[#1f0322] sm:pr-65 pr-35">
               <MorphingText texts={["Think.", "Draw.","Share."]} />
             </span>
-            <span className="text-xl max-w-3xl text-center mt-5 text-[#1f0322]">
+            <span className="sm:text-xl text-lg max-w-3xl text-center mt-5 text-[#1f0322] px-4">
               A fast, lightweight whiteboard for teams, creators, and thinkers. Build diagrams, visualize systems, and communicate ideas with simple tools that stay out of your way and let your creativity lead.
             </span>
           </div> 
@@ -41,12 +41,12 @@ export default function Home() {
                   }}
                   >
                 </motion.div>
-                <div className=" flex relative rounded-xl bg-black w-80 sm:w-200">
+                <div className=" flex relative rounded-xl bg-black w-75 sm:w-200">
                   <img src="/hanu.png" className="w-200 aspect-auto rounded-xl z-1" alt=""/>
                 </div>
               </div> 
-              <div className="absolute -left-72 -top-15 translate-x-30 rotate-90 mix-blend-exclusion">
-                <video src="/arrow.mp4" autoPlay loop muted className="h-30" ></video>
+              <div className="absolute -left-16 -top-7 sm:-left-64 sm:-top-15 sm:translate-x-30 rotate-80 mix-blend-difference z=9" >
+                <video src="/arrow4.mp4" autoPlay loop muted className="h-15 sm:h-30" ></video>
               </div>
           </div>
           
