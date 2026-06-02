@@ -3,6 +3,7 @@
 import { easeInOut, motion, scale, transform } from "motion/react"
 import { useSpring } from "motion/react"
 import { MorphingText } from "@/components/ui/morphing-text"
+import { Highlighter } from "@/components/ui/highlighter"
 
 export default function Home() {
 
@@ -26,7 +27,18 @@ export default function Home() {
               <MorphingText texts={["Think.", "Draw.","Share."]} />
             </span>
             <span className="sm:text-xl text-lg max-w-3xl text-center mt-5 text-[#1f0322] px-4">
-              A fast, lightweight whiteboard for teams, creators, and thinkers. Build diagrams, visualize systems, and communicate ideas with simple tools that stay out of your way and let your creativity lead.
+              <p>
+                A fast, lightweight whiteboard for teams, creators, and thinkers. Build diagrams, visualize systems, and communicate ideas with &nbsp; 
+                <Highlighter action="underline" color="#FF9800">
+                  simple tools 
+                </Highlighter>
+                &nbsp;
+                that stay out of your way and &nbsp;
+                <Highlighter action="highlight" color="#87CEFA">
+                  let your creativity lead.
+                </Highlighter>
+                 
+              </p>
             </span>
           </div> 
         <div className="flex w-full justify-center items-center pt-40">
