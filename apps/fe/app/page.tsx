@@ -4,12 +4,14 @@ import { easeInOut, motion, scale, transform } from "motion/react"
 import { useSpring } from "motion/react"
 import { MorphingText } from "@/components/ui/morphing-text"
 import { Highlighter } from "@/components/ui/highlighter"
+import { RippleButton } from "@/components/ui/ripple-button"
+import Link from "next/link"
 
 export default function Home() {
 
 
   return(
-      <div className="flex flex-col bg-gradient-to-b pb-20 from-blue-400 via-purple-200  min-h-screen min-w-screen to-transparent bg-[length:200%_200%] animate-gradient">
+      <div className="flex flex-col bg-linear-to-b pb-20 from-blue-400 via-purple-200  min-h-screen min-w-screen to-transparent bg-size-[200%_200%] animate-gradient">
           <div className=" flex flex-col gap-4 justify-center items-center w-full h-60 mt-25 pt-20 sm:pt-10 sm:h-100 text-4xl sm:text-8xl font-inter font-bold">
             <span>Welcome to&nbsp;</span>
             <motion.span
@@ -41,7 +43,14 @@ export default function Home() {
               </p>
             </span>
           </div> 
-        <div className="flex w-full justify-center items-center pt-40">
+          <div className=" mt-30 flex justify-center gap-4">
+            <Link href="/signin">
+              <RippleButton rippleColor="pink" className="font-inter font-bold text-black/70">Sign In</RippleButton>
+            </Link>
+            
+            <RippleButton rippleColor="pink" className="font-inter font-bold text-black/70">Use as guest</RippleButton>
+          </div>
+        <div className="flex w-full justify-center items-center pt-20">
           <div className="relative">
               <div className="relative overflow-hidden rounded-xl p-0.5">
                 <motion.div className="absolute -inset-full bg-[conic-gradient(from_60deg,transparent,transparent,#FF1493,transparent,blue)] z-0"
@@ -63,6 +72,7 @@ export default function Home() {
           </div>
           
         </div>
+
       </div>
   );
 }
