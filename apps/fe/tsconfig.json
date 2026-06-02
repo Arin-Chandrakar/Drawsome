@@ -2,6 +2,11 @@
   "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
     "jsx":"react-jsx",
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "plugins": [
       {
         "name": "next"
