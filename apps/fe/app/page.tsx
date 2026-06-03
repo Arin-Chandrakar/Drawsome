@@ -43,14 +43,14 @@ export default function Home() {
               </p>
             </span>
           </div> 
-          <div className=" mt-30 flex justify-center gap-4">
+          <div className="mt-40 sm:mt-30 flex justify-center gap-4">
             <Link href="/signin">
               <RippleButton rippleColor="pink" className="font-inter font-bold text-black/70">Sign In</RippleButton>
             </Link>
             
             <RippleButton rippleColor="pink" className="font-inter font-bold text-black/70">Use as guest</RippleButton>
           </div>
-        <div className="flex w-full justify-center items-center pt-20">
+        <div className="flex w-full justify-center items-center pt-10">
           <div className="relative">
               <div className="relative overflow-hidden rounded-xl p-0.5">
                 <motion.div className="absolute -inset-full bg-[conic-gradient(from_60deg,transparent,transparent,#FF1493,transparent,blue)] z-0"
