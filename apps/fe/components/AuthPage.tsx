@@ -11,6 +11,7 @@ export function AuthPage({isSignIn}:{
 
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
+    const [name,setName] = useState("");
 
     async function handleAuth(){
         try{
@@ -46,6 +47,9 @@ export function AuthPage({isSignIn}:{
                 <Highlighter action="underline" color="black">Drawsome</Highlighter>
             </div>
             <div className="flex flex-col gap-4">
+                {!isSignIn && (
+                    <input type="text" placeholder="name" value={name} onChange={(e)=>setName(e.target.value)} className="border-black border p-2 rounded-2xl text-center font-inter font-bold "/>
+                )}
                 <input type="text" placeholder="email" value={username} onChange={(e)=>setUsername(e.target.value)} className="border-black border p-2 rounded-2xl text-center font-inter font-bold "/>
                 <input type="text" placeholder="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="border-black border p-2 rounded-2xl text-center font-inter font-bold"/>
             </div>
